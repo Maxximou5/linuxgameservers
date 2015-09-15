@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # Game Server Query
 # Author: Anonymous & Daniel Gibbs
-# # Website: http://danielgibbs.co.uk
-# Version: 031014
+# # Website: http://gameservermanagers.com
+# Version: 030515
 
 import optparse
 import socket
@@ -24,6 +24,8 @@ class GameServer:
 		if self.option.engine == 'spark':
 			self.query_prompt_string = '\xFF\xFF\xFF\xFFTSource Engine Query\0'
 		if self.option.engine == 'realvirtuality':
+			self.query_prompt_string = '\xFF\xFF\xFF\xFFTSource Engine Query\0'
+		if self.option.engine == 'unity3d':
 			self.query_prompt_string = '\xFF\xFF\xFF\xFFTSource Engine Query\0'
 		elif self.option.engine == 'unreal':
 			self.query_prompt_string = '\x5C\x69\x6E\x66\x6F\x5C'
@@ -99,8 +101,8 @@ if __name__ == '__main__':
 		action = 'store',
 		dest = 'engine',
 		default = False,
-		help = 'Engine type. source, goldsource, unreal, unreal2, spark'
-	)	
+		help = 'Engine type: avalanche, goldsource, realvirtuality, spark, source, unity3d, unreal, unreal2.'
+	)
 	parser.add_option(
 		'-v', '--verbose',
 		action = 'store_true',
